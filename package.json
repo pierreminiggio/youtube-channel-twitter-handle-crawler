@@ -1,0 +1,23 @@
+{
+    "name": "@pierreminiggio/youtube-channel-twitter-handle-crawler",
+    "version": "1.0.0",
+    "description": "Youtube Channel Links Crawler",
+    "main": "main.js",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pierreminiggio/youtube-channel-twitter-handle-crawler.git"
+    },
+    "author": "Pierre MINIGGIO",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/pierreminiggio/youtube-channel-twitter-handle-crawler/issues"
+    },
+    "homepage": "https://github.com/pierreminiggio/youtube-channel-twitter-handle-crawler#readme",
+    "dependencies": {
+        "node": "^12.6.0"
+    },
+    "scripts": {
+        "test": "node test.js"
+    }
+}
