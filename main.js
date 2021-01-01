@@ -1,12 +1,11 @@
 import scraper from './src/scraper.js'
 
 /**
- * @typedef {string} youtubeLink
- * @typedef {youtubeLink[]} youtubeLinkCollection
+ * @typedef {string} twitterHandle
 
  * @param {string} channelId 
  * 
- * @returns {Promise<youtubeLinkCollection>}
+ * @returns {Promise<twitterHandle>}
  */
 export default function (channelId) {
     return new Promise(async (resolve, reject) => {

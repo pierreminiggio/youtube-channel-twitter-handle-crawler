@@ -1,51 +1,23 @@
-import puppeteer from 'puppeteer'
+import crawler from '@pierreminiggio/youtube-channel-links-crawler'
 
 /**
  * @param {string} channelId 
- * @param {boolean} show 
  * 
- * @returns {Promise<string[]>}
+ * @returns {Promise<string>}
  */
-export default function (channelId, show) {
+export default function (channelId) {
     return new Promise(async (resolve, reject) => {
         try {
-            const browser = await puppeteer.launch({headless: ! show})
-            const page = await browser.newPage()
-            await page.goto('https://www.youtube.com/channel/' + channelId + '/about')
-
-            const linksContainerSelector = '#links-container'
-            await page.waitForSelector(linksContainerSelector)
-            const scrapedLinks = await page.evaluate(linksContainerSelector => {
-                const links = []
-                document.querySelectorAll(linksContainerSelector + ' a').forEach(linkElement => {
-                    links.push(linkElement.href)
-                })
-
-                return links
-            }, linksContainerSelector)
-
-            const links = []
-
-            scrapedLinks.forEach(scrapedLink => {
-
-                const splitLink = scrapedLink.split('&q=')
-
-                if (! scrapedLink.includes('https://www.youtube.com/redirect?') || splitLink.length === 1) {
-                    links.push(scrapedLink)
-                    return
+            const links = await crawler(channelId)
+            const twitterBaseUri = 'https://twitter.com/'
+            links.forEach(link => {
+                if (link.includes(twitterBaseUri)) {
+                    resolve(link.split(twitterBaseUri)[1])
                 }
-
-                links.push(decodeURIComponent(splitLink[1]))
             })
 
-            await browser.close()
-            resolve(links)
+            resolve(null)
         } catch (e) {
-
-            if (browser !== undefined) {
-                await browser.close()
-            }
-            
             reject(e)
         }
     })

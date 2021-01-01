@@ -15,6 +15,7 @@
     },
     "homepage": "https://github.com/pierreminiggio/youtube-channel-twitter-handle-crawler#readme",
     "dependencies": {
+        "@pierreminiggio/youtube-channel-links-crawler": "github:pierreminiggio/youtube-channel-links-crawler",
         "node": "^12.6.0"
     },
     "scripts": {

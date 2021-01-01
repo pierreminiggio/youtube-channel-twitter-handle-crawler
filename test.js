@@ -1,3 +1,3 @@
 import scraper from './src/scraper.js'
 
-scraper('UCKbunxMnqxM8UFMEYF79CUQ', true).then(console.log)
+scraper('UCIHVyohXw6j2T-83-uLngEg').then(console.log)
