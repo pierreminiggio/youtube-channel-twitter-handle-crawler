@@ -9,11 +9,19 @@ export default function (channelId) {
     return new Promise(async (resolve, reject) => {
         try {
             const links = await crawler(channelId)
-            const twitterBaseUri = 'https://twitter.com/'
-            links.forEach(link => {
-                if (link.includes(twitterBaseUri)) {
-                    resolve(link.split(twitterBaseUri)[1])
-                }
+            const twitterBaseUris = [
+                'https://www.twitter.com/',
+                'http://www.twitter.com/',
+                'https://twitter.com/',
+                'http://twitter.com/'
+            ]
+            twitterBaseUris.forEach(twitterBaseUri => {
+                links.forEach(link => {
+                    if (link.includes(twitterBaseUri)) {
+                        resolve(link.split(twitterBaseUri)[1])
+                        return
+                    }
+                })
             })
 
             resolve(null)
