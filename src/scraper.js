@@ -13,7 +13,11 @@ export default function (channelId) {
                 'https://www.twitter.com/',
                 'http://www.twitter.com/',
                 'https://twitter.com/',
-                'http://twitter.com/'
+                'http://twitter.com/',
+                'https://www.Twitter.com/',
+                'http://www.Twitter.com/',
+                'https://Twitter.com/',
+                'http://Twitter.com/'
             ]
             twitterBaseUris.forEach(twitterBaseUri => {
                 links.forEach(link => {
