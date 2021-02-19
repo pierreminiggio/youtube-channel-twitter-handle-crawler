@@ -22,7 +22,7 @@ export default function (channelId) {
             twitterBaseUris.forEach(twitterBaseUri => {
                 links.forEach(link => {
                     if (link.includes(twitterBaseUri)) {
-                        resolve(link.split(twitterBaseUri)[1])
+                        resolve(link.split(twitterBaseUri)[1].replace('#!\/', ''))
                         return
                     }
                 })
