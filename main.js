@@ -10,8 +10,8 @@ import scraper from './src/scraper.js'
 export default function (channelId) {
     return new Promise(async (resolve, reject) => {
         try {
-            const links = await scraper(channelId, false)
-            resolve(links)
+            const handle = await scraper(channelId, false)
+            resolve(handle)
         } catch (e) {
             reject(e)
         }
