@@ -30,6 +30,8 @@ export default function (channelId) {
                                 ''
                             ).split(
                                 '?'
+                            )[0].split(
+                                '/'
                             )[0]
                         )
                         return
